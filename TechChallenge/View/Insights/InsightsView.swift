@@ -9,6 +9,7 @@ import SwiftUI
 
 struct InsightsView: View {
     let transactions: [TransactionModel] = ModelData.sampleTransactions
+    @StateObject var viewModel = TransactionViewModel()
     
     var body: some View {
         List {
@@ -22,7 +23,7 @@ struct InsightsView: View {
                         .foregroundColor(category.color)
                     Spacer()
                     // TODO: calculate cummulative expense for each category
-                    Text("$0.0")
+                    Text(viewModel.calculateTotalPriceForInsight(eachCategory: category).delimiter)
                         .bold()
                         .secondary()
                 }

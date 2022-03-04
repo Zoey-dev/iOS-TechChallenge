@@ -98,5 +98,16 @@ class TransactionViewModel: ObservableObject {
         }
     }
     
+    func calculateTotalPriceForInsight(eachCategory: TransactionModel.Category) -> Double {
+          var amount: Double = 0
+          for i in ModelData.sampleTransactions {
+              if i.category == eachCategory {
+                  amount += i.amount
+              }
+          }
+          return amount
+         
+      }
+    
     
 }

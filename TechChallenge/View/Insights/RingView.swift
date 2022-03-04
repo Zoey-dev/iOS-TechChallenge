@@ -13,19 +13,31 @@ struct RingView: View {
     let transactions: [TransactionModel]
     
     private func ratio(for categoryIndex: Int) -> Double {
+        var allTotal: Double = 0
+        var categoryTotal: Double = 0
+        let eachTransaction = transactions[categoryIndex]
         // TODO: calculate ratio for each category according to cummulative expense
-        
+        for trans in transactions {
+            allTotal += trans.amount
+            if eachTransaction.category == trans.category {
+                categoryTotal += trans.amount
+            }
+        }
+       let percentage = ((categoryTotal * 100) / allTotal) / 100
+
         // Returning sample value
-        0.2
+        return percentage
     }
     
     private func offset(for categoryIndex: Int) -> Double {
         // TODO: calculate offset for each category according to cummulative expense
+        let offsetCalc = ratio(for: categoryIndex) * Double(categoryIndex)
         
         // Returning sample value
-        Double(categoryIndex) * 0.2
+        return offsetCalc
     }
 
+    
     private func gradient(for categoryIndex: Int) -> AngularGradient {
         let color = Category[categoryIndex]?.color ?? .black
         return AngularGradient(
