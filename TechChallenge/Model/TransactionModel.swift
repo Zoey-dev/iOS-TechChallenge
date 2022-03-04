@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // MARK: - TransactionModel
 
@@ -40,6 +41,13 @@ struct TransactionModel {
     let date: Date
     let accountName: String
     let provider: Provider?
+    var pin: Bool = false
+}
+
+struct HeaderButtons: Identifiable {
+    var id: Int
+    var category: String
+    var data: [TransactionModel]
 }
 
 extension TransactionModel: Identifiable {}
