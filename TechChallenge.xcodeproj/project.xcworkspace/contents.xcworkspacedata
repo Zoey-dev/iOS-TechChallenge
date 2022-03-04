@@ -2,6 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
+<<<<<<< HEAD
       location = "self:">
+=======
+      location = "self:/Users/gareth/Downloads/TakeHomeChallenge-main/TechChallenge.xcodeproj">
+>>>>>>> 9e48e18a75d2300bc9bd19655c3d6b486a97ca54
    </FileRef>
 </Workspace>
